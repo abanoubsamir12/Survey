@@ -1,0 +1,38 @@
+﻿@using Survey.Models
+@model IEnumerable<Survey.Models.Answer>
+
+@{
+    ViewData["Title"] = "View Answers";
+}
+
+<h1>Answers for: @ViewBag.QuestionText</h1>
+<hr />
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Answer</th>
+            <th>Submitted By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in Model)
+        {
+            <tr>
+                <td>@answer.Id</td>
+                <td>@answer.Response</td>
+                <td>@answer.User.Username</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Back to Questions</a>
+</div>

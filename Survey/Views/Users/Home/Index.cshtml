@@ -1,0 +1,22 @@
+﻿@using Survey.DTOs
+@model IEnumerable<SurveyTDto>
+
+@{
+    ViewData["Title"] = "User Home";
+}
+
+<h2>Welcome to the Surveys</h2>
+<div class="row">
+    @foreach (var survey in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@survey.Title</h5>
+                    <p class="card-text">@survey.Description</p>
+                    <a asp-action="StartSurvey" asp-route-id="@survey.Id" class="btn btn-primary">Start Survey</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿@using Survey.DTOs
+@model IEnumerable<QuestionDto>
+
+@{
+    ViewData["Title"] = "Answer Survey";
+}
+
+<h2>Answer the Questions</h2>
+<form asp-action="SubmitAnswers" method="post">
+    <!-- Hidden input to pass SurveyId -->
+    <input type="hidden" name="SurveyId" value="@ViewBag.SurveyId" />
+    @foreach (var question in Model)
+    {
+        <div class="form-group">
+            <label>@question.Text</label>
+
+                <input type="text" name="Answers[@question.Id]" class="form-control" />
+        </div>
+    }
+
+    <button type="submit" class="btn btn-success">Submit Answers</button>
+</form>

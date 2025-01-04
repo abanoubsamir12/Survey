@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    
+
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        alert("@TempData["SuccessMessage"]");
+    </script>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-primary me-2" href="/Auth/Register">Register</a>
+        <a class="btn btn-secondary" href="/Auth/Login">Login</a>
+    </div>
+
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

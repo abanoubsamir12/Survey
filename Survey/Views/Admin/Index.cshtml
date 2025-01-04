@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<h1>Admin Panel</h1>
+<hr />
+<div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a class="btn btn-link" asp-action="AddSurvey">Add Survey</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-link" asp-action="AddQuestion">Add Question</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-link" asp-action="ViewQuestions">View Questions</a>
+        </li>
+        <li class="list-group-item">
+            <a class="btn btn-link" asp-action="ListInactiveAdmins">View Inactive Admins</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,41 @@
+﻿@using Survey.Models
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Inactive Admins";
+}
+
+<h1>Inactive Admins</h1>
+<hr />
+
+@if (!Model.Any())
+{
+    <p>No inactive admins found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var admin in Model)
+            {
+                <tr>
+                    <td>@admin.Username</td>
+                    <td>@admin.Email</td>
+                    <td>
+                        <form asp-action="ActivateAdmin" method="post">
+                            <input type="hidden" name="id" value="@admin.Id" />
+                            <button type="submit" class="btn btn-success">Activate</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
